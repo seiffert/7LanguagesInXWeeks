@@ -1,0 +1,22 @@
+## RUBY
+
+- The Ruby API: http://ruby-doc.org/core-1.9.3/
+- Programming Ruby: The Pragmatic Programmer's Guide:   http://www.ruby-doc.org/docs/ProgrammingRuby/
+- Methods that substitutes parts of a string:
+    - gsub(pattern, replacement) - replaces ALL occurrences of pattern
+    - sub(pattern, replacement) - replaces the FIRST occurrence of pattern
+- Information about RegExp:
+    - http://www.ruby-doc.org/core-1.9.3/Regexp.html
+- Information about Ranges:
+    - http://www.ruby-doc.org/core-1.9.3/Range.html
+- Opening Files 
+    - with block:
+        File.open("filename", "w") { |file| ... } -> returns value of block
+    - without block:
+        File.open("filename", "w") -> returns file object
+- Convert Hash to Array
+    {:first => "test 1", :second => "test 2"}.to_a -> [[:second, "test 2"], [:first, "test 1"]]
+- Convert Array to Hash
+    -> Problem, information (keys) is missing
+- Array data structures
+    -> Stack (pop, push)

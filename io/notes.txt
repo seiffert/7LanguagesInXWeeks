@@ -1,0 +1,38 @@
+- User Group:
+    - http://tech.groups.yahoo.com/group/iolanguage/
+    - http://stackoverflow.com/questions/tagged/iolanguage
+- Reference:
+    - http://iolanguage.org/scm/io/docs/reference/index.html
+    - http://en.wikibooks.org/wiki/Io_Programming
+- Style Guide: 
+    - http://en.wikibooks.org/wiki/Io_Programming/Io_Style_Guide
+    
+
+- Strongly/Weakly typed? 
+
+        Io> 1 + 1
+        ==> 2
+        Io> 1 slotNames
+        ==> list()
+        Io> 1 + "one"
+
+          Exception: argument 0 to method '+' must be a Number, not a 'Sequence'
+          ---------
+          message '+' in 'Command Line' on line 1
+
+    -> looks like it is strongly typed: it does not convert types implicitly
+
+- Is 0 true or false?
+    All numbers are considered true when used as a boolean expression
+- Is the empty string true or false?
+    -> true
+- Is nil true or false?
+    -> false
+
+- How can you tell what slots a prototype supports?
+    -> By sending it the slotNames message
+       <prototype> slotNames
+
+- =   Assigns a value to an already existing slot
+- :=  Assigns a value to a not yet existing slot
+- ::= Assigns a value to a not yet existing slot, creates a setter
