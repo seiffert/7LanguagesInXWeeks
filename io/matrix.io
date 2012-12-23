@@ -1,10 +1,11 @@
 Matrix := List clone
-Matrix init := method(x, y,
+Matrix alloc := method(x, y,
     l := List clone
     
     l asString := method (
         self join(" ")
     )
+
     for (i, 1, x,
         l append(0)
     )
@@ -30,7 +31,7 @@ Matrix transpose := method(
 Matrix asString := method(
     string := "" asMutable
     self foreach(row, 
-        string appendSeq(row asString asString) appendSeq("\n")
+        string appendSeq(row asString) appendSeq("\n")
     )
     string
 )
@@ -41,12 +42,32 @@ Matrix writeToFile := method (filename,
     f close
 )
 
-dim := method (x, y,
-    l := Matrix clone
-    l init(x, y)
+dim := method(x, y,
+    x println
+    m := Matrix clone
+    x println
+    m alloc(x, y)
+    m
 )
 matrixFromFile := method(filename,
-
+    f := File with(filename)
+    f openForReading
+    
+    lines := f readLines
+    rows := List clone
+    lines foreach(line, 
+        rows append(line split(" "))
+    )
+    
+    matrix := Matrix clone
+    matrix alloc(rows size, rows at(0) size)
+    
+    for(i, 1, rows size,
+        for(j, 1, rows at(i - 1) size,
+            matrix set(i, j, rows at(i - 1) at(j - 1))
+        )
+    )
+    matrix
 )
     
 test := dim(3, 2)
@@ -57,3 +78,6 @@ test println
 test transpose println
 
 test writeToFile("matrix.txt")
+
+test2 := matrixFromFile("matrix.txt")
+test2 println
